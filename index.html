@@ -1,40 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonatan Modin</title>
     <style>
-      @font-face {
-        font-family: 'AlteHaasGrotesk';
-        src: url('Fonts/AlteHaasGroteskRegular.woff2') format('woff2');
-        font-weight: normal;
-        font-style: normal;
-      }
+        @font-face {
+            font-family: 'AlteHaasGrotesk';
+            src: url('Fonts/AlteHaasGroteskRegular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-      body {
-        display: flex;
-        justify-content: center;
-        background-color: white;
-        margin: 0;
-        height: 100vh;
-        overflow: hidden;
-        font-family: 'AlteHaasGrotesk', sans-serif;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-weight: 400;
+        }
 
-      h1 {
-        font-size: 24px;
-        text-align: center;
-      }
-      h2 {
-        font-size: 12px;
-        text-align: center;
-      }
+        body {
+            font-family: 'AlteHaasGrotesk', sans-serif;
+            background-color: white;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 30px 0;
+            z-index: 1000;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+        }
+        .header h2 {
+            font-size: 1.6rem;
+        }
+
+        .thumbnails-container {
+            position: relative;
+            width: 80%;
+            height: 70vh;
+            margin: 20vh auto 0 auto;
+            border: 0px solid black;
+        }
+
+        .thumbnail {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: grey;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbnail:nth-child(1) { top: 0%; left: 0%; }
+        .thumbnail:nth-child(2) { top: 30%; left: 40%; }
+        .thumbnail:nth-child(3) { top: 50%; left: 20%; }
+        .thumbnail:nth-child(4) { top: 20%; left: 60%; }
+        .thumbnail:nth-child(5) { top: 40%; left: 20%; }
+        .thumbnail:nth-child(6) { top: 65%; left: 66%; }
+
+        .thumbnail video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project {
+            margin: 50px auto;
+        }
+
+        .image-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 0vh;
+            white-space: nowrap;
+            height: 36vw;
+            margin-bottom: 2vw;
+            scrollbar-width: none;
+    -ms-overflow-style: none;
+        }
+
+        .image-slider::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari */
+}
+
+        .image-slider img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    padding-right: 1vw;
+}
+        .project-description {
+            width: 65%;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .project-description h1 {
+            font-size: 2.8rem;
+        }
+        .project-description p {
+            font-size: 1.4rem;
+        }
+
+        .project-description-hidden {
+            display: none;
+        }
+
+        .toggle-button {
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 1.4rem;
+            display: inline;
+        }
     </style>
-  </head>
-  <body>
-    <div>
-      <h1>JONATAN MODIN</h1><h2>DESIGN / ART DIRECTION</h2>
+</head>
+<body>
+    <div class="header">
+        <h1>JONATAN MODIN</h1>
+        <h2>DESIGN / ART DIRECTION</h2>
     </div>
-  </body>
+
+    <div class="thumbnails-container">
+        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 1.png" src="project1.mp4"></video></div>
+        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 2.png" src="project2.mp4"></video></div>
+        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 3.png" src="project3.mp4"></video></div>
+        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 4.png" src="project4.mp4"></video></div>
+        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 5.png" src="project5.mp4"></video></div>
+        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 6.png" src="project6.mp4"></video></div>
+    </div>
+
+    <div class="project">
+        <div class="image-slider">
+          <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_6.jpg">
+            <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_3.jpg" style="width: auto; height: 100%; margin: auto;">
+            <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_1.jpg">
+            <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_4.jpg">
+            <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_5.jpg">
+            <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_7.jpg">
+        </div>
+        <div class="project-description">
+            <h1 class="project-header">Lilla Samvetet</h1>
+            <p>2024<br><br>Lilla Samvetet (”The Little Conscience”) is the result of a interdisciplinary collaboration between researchers at the Beijer Institute, Svenskt Tenn, and Beckmans College of Design.<br><br></p>
+            <p class="project-description-hidden">The Beijer Institute has conducted immense research... <br><br></p>
+            <span class="toggle-button" onclick="toggleDescription(this)">More</span>
+        </div>
+    </div>
+
+    <script>
+        function toggleDescription(element) {
+            const description = element.previousElementSibling;
+            if (description.style.display === "none" || description.style.display === "") {
+                description.style.display = "block";
+                element.textContent = "Less";
+            } else {
+                description.style.display = "none";
+                element.textContent = "More";
+            }
+        }
+    </script>
+</body>
 </html>
