@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://unpkg.com/@studio-freight/lenis@latest/dist/lenis.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonatan Modin</title>
@@ -11,6 +12,12 @@
             font-weight: normal;
             font-style: normal;
         }
+        @font-face {
+    font-family: 'AlteHaasGrotesk';
+    src: url('Fonts/AlteHaasGroteskBold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
 
         * {
             margin: 0;
@@ -18,7 +25,6 @@
             box-sizing: border-box;
             font-weight: 400;
         }
-
         body {
             font-family: 'AlteHaasGrotesk', sans-serif;
             position: relative;
@@ -31,7 +37,7 @@
             left: 0;
             width: 100%;
             text-align: center;
-            padding: 30px 0;
+            padding: 50px 0;
             color: white;
             mix-blend-mode: difference;
             z-index: 2;
@@ -44,23 +50,68 @@
             font-size: 1.6rem;
         }
 
+        .leftLink {
+          position: fixed;
+            top: 0;
+            left: 4vw;
+            text-align: left;
+            padding: 65px 0;
+            font-size: 1.4rem;
+                  }
+
+                  .rightLink {
+          position: fixed;
+            top: 0;
+            right: 4vw;
+            text-align: right;
+            padding: 65px 0;
+            font-size: 1.4rem;
+                  }
+
         .thumbnails-container {
             position: relative;
             width: 80%;
             height: 70vh;
-            margin: 22vh auto 0 auto;
+            margin: 25vh auto 0 auto;
             border: 0px solid black;
             z-index: 1;
+            margin-bottom: 1vh;
         }
 
         .thumbnail {
-            position: absolute;
-            width: 210px;
-            height: 210px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        position: absolute;
+        width: 210px;
+        height: 210px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .caption {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 1.4rem;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+        pointer-events: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing:0.03rem;
+        line-height: 97%;
+    }
+
+    .thumbnail:hover .caption {
+        opacity: 1;
+    }
 
         .thumbnail:nth-child(1) { top: 45%; left: 45%; }
         .thumbnail:nth-child(2) { top: 0%; left: 40%; }
@@ -76,7 +127,7 @@
         }
 
         .project {
-            margin: 50px auto;
+            padding-bottom: 15vh;
         }
 
         .image-slider-container {
@@ -97,7 +148,7 @@
     cursor: pointer;
     padding: 10px 15px;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
     mix-blend-mode: difference;
 }
 
@@ -115,7 +166,7 @@
         .image-slider {
             display: flex;
             overflow-x: auto;
-            scroll-behavior: smooth;
+            scroll-behavior:smooth;
             gap: 0vh;
             white-space: nowrap;
             height: 36vw;
@@ -128,12 +179,14 @@
     display: none;
 }
 
-        .image-slider img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    padding-right: 0.6vw;
-}
+.image-slider img, 
+        .image-slider video {
+            height: 100%;
+            width: auto;
+            display: block;
+            max-width: none;
+            padding-right: 0.6vw;
+        }
         .project-description {
             width: 62%;
             margin: auto;
@@ -167,47 +220,107 @@
     text-align: center;
     margin: 1rem auto;
         }
+        ::selection {
+    background: black;
+    color: lightgray;
+}
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 64vw;
+    height: 36vw;
+}
     </style>
 </head>
 <body>
     <div class="header">
         <h1>JONATAN MODIN</h1>
         <h2>DESIGN / ART DIRECTION</h2>
+        <p class="leftLink"><a href="https://www.instagram.com/jonatanmodin" target="_blank" class="underline-link">About</a></p><p class="rightLink"><a href="https://www.instagram.com/jonatanmodin" target="_blank" class="underline-link">Instagram</a></p>
     </div>
-
     <div class="thumbnails-container">
-        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 1.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_LetsPollinate.mp4"></video></div>
-        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 2.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_LillaSamvetet.mp4"></video></div>
-        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 3.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_Katarsis.mp4"></video></div>
-        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 4.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_Sellpy.mp4"></video></div>
-        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 5.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_Ionosphere.mp4"></video></div>
-        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 6.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_AllmänLekplats.mp4"></video></div>
-    </div>
-
-    <div class="project">
+      <div class="thumbnail">
+          <video autoplay loop muted poster="assets/Asset 1.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_LetsPollinate.mp4"></video>
+          <div class="caption">ai powered <br>community <br>building</div>
+      </div>
+        <div class="thumbnail">
+          <a class="scroll-link" data-target="lilla-samvetet">
+            <video autoplay loop muted poster="assets/Asset 2.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_LillaSamvetet.mp4"></video>
+          </a>
+            <div class="caption">A super<br>strong<br>conscience</div>
+        </div>
+      <div class="thumbnail">
+        <a class="scroll-link" data-target="katarsis">
+          <video autoplay loop muted poster="assets/Asset 3.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_Katarsis.mp4"></video>
+        </a>
+          <div class="caption">workplace <br>conflict <br>resolution</div>
+      </div>
+      <div class="thumbnail">
+          <video autoplay loop muted poster="assets/Asset 4.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_Sellpy.mp4"></video>
+          <div class="caption">sustainable <br>outfit <br>swapping</div>
+      </div>
+      <div class="thumbnail">
+          <video autoplay loop muted poster="assets/Asset 5.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_Ionosphere.mp4"></video>
+          <div class="caption">3d<br>projection<br>mapping</div>
+      </div>
+      <div class="thumbnail">
+          <video autoplay loop muted poster="assets/Asset 6.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_AllmänLekplats.mp4"></video>
+          <div class="caption">playing at <br>construction <br>sites</div>
+      </div>
+  </div>
+    <div class="project" id="katarsis">
       <div class="image-slider-container">
           <button class="arrow left" onclick="scrollSlider(-1)">&lt;</button>
           <div class="image-slider">
-              <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_6.jpg">
-              <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_3.jpg">
-              <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_1.jpg">
-              <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_4.jpg">
-              <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_5.jpg">
-              <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_7.jpg">
-          </div>
+            <video autoplay loop muted poster="assets/Katarsis/Jonatan_Modin_Art_Director_Designer_Stockholm_Katarsis2.jpg" src="assets/Katarsis/Jonatan_Modin_Art_Director_Designer_Stockholm_Katarsis1.mp4"></video>
+            <img src="assets/Katarsis/Jonatan_Modin_Art_Director_Designer_Stockholm_Katarsis3.jpg">
+            <img src="assets/Katarsis/Jonatan_Modin_Art_Director_Designer_Stockholm_Katarsis4.jpg">
+            <div class="video-wrapper">
+              <iframe src="https://player.vimeo.com/video/1059798120?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Katarsis – A short film"></iframe>
+          </div>          </div>
           <button class="arrow right" onclick="scrollSlider(1)">&gt;</button>
       </div>
       <div class="project-description">
-          <h1 class="project-header">Lilla Samvetet</h1>
-          <p>2024<br><br>Lilla Samvetet (”The Little Conscience”) is the result of a <a href="https://www.svenskttenn.se" target="_blank" class="underline-link">interdisciplinary collaboration</a> between researchers at <a href="https://www.svenskttenn.se" target="_blank" class="underline-link">the Beijer Institute</a>, <a href="https://www.svenskttenn.se" target="_blank" class="underline-link">Svenskt Tenn</a>, and <a href="https://www.svenskttenn.se" target="_blank" class="underline-link">Beckmans College of Design</a>.<br></p>
-          <p class="project-description-hidden"><br>The Beijer Institute has conducted immense research on the risks and opportunities associated with artificial intelligence, and the goal of this project was to find new ways convey this knowledge both intellectually and emotionally, through visual communication.
-<br><br><b></b>
-            We did this by imagining a future where artificial intelligence is given a place inside of the human intellect. In such an amalgam of intelligence, we think that AI could save the flawed human from acting unsustainably and selfishly. Like <a href="https://www.svenskttenn.se" target="_blank" class="underline-link">Jiminy Cricket</a>, the AI would take on the role of a conscience. But unlike the little cricket, this new conscience is not something you can simply wave away. Instead it is super strong, and impossible to betray.
-            <br><br>
-            Lilla Samvetet was made in collaboration with <a href="https://www.svenskttenn.se" target="_blank" class="underline-link">Elvin Odelholm</a>.<br></p>
-          <span class="toggle-button" onclick="toggleDescription(this)">More</span>
+          <h1 class="project-header">Katarsis</h1>
+          <p>2025<br><br>A speculative glimpse into the future workplace, presented in the form of a <a href="https://vimeo.com/1059798120?share=copy" target="_blank" class="underline-link">short film</a> commissioned by <a href="https://ahouse.se/community/vad-driver-framtidens-arbetsplats-2/" target="_blank" class="underline-link">A house</a>.<br></p>
+          <p class="project-description-hidden"><br>Remote work offers many benefits but often comes at the expense of connection between colleagues. In the future, virtual technology could enable interactions once deemed impossible in professional settings. 
+            <br><br>A virtual space without lasting physical consequences allows for actions without limitations. By expressing strong emotions, a sense of relief and clarity can be achieved—a process known as catharsis. 
+            <br><br>Katarsis was directed, written, and produced by Jonatan Modin, Emilia Lind, and Sofia Di Marco, and made possible with support from <a href="https://rockson.se" target="_blank" class="underline-link">Rockson</a>, <a href="https://sellpy.se" target="_blank" class="underline-link">Sellpy</a>, and <a href="https://nyfosa.se" target="_blank" class="underline-link">Nyfosa</a>.<br></p>
+          <span class="toggle-button" onclick="toggleDescription(this)">More info</span>
       </div>
   </div>
+  <div class="project" id="lilla-samvetet" style="margin-top: -10vh;">
+    <div class="image-slider-container">
+        <button class="arrow left" onclick="scrollSlider(-1)">&lt;</button>
+        <div class="image-slider">
+            <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_6.jpg">
+            <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_3.jpg">
+            <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_1.jpg">
+            <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_4.jpg">
+            <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_5.jpg">
+            <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_7.jpg">
+        </div>
+        <button class="arrow right" onclick="scrollSlider(1)">&gt;</button>
+    </div>
+    <div class="project-description">
+        <h1 class="project-header">Lilla Samvetet</h1>
+        <p>(The Little Conscience), 2024<br><br>The result of a <a href="https://beijer.kva.se/news-item/4163/" target="_blank" class="underline-link">interdisciplinary collaboration</a> between researchers at <a href="https://beijer.kva.se/" target="_blank" class="underline-link">the Beijer Institute</a>, <a href="https://www.svenskttenn.se" target="_blank" class="underline-link">Svenskt Tenn</a>, and <a href="https://beckmans.se/" target="_blank" class="underline-link">Beckmans College of Design</a>.<br></p>
+        <p class="project-description-hidden"><br>The Beijer Institute has conducted immense research on the risks and opportunities associated with artificial intelligence, and the goal of this project was to find new ways convey this knowledge both intellectually and emotionally, through visual communication.
+<br><br><b></b>
+          We did this by imagining a future where artificial intelligence is given a place inside of the human intellect. In such an amalgam of intelligence, we think that AI could save the flawed human from acting unsustainably and selfishly. Like <a href="https://en.wikipedia.org/wiki/Jiminy_Cricket" target="_blank" class="underline-link">Jiminy Cricket</a>, the AI would take on the role of a conscience. But unlike the little cricket, this new conscience is not something you can simply wave away. Instead it is super strong, and impossible to betray.
+          <br><br>
+          Lilla Samvetet was made in collaboration with <a href="https://elvinodelholm.com/" target="_blank" class="underline-link">Elvin Odelholm</a>.<br></p>
+        <span class="toggle-button" onclick="toggleDescription(this)">More info</span>
+    </div>
+</div>
 
     <script>
 function toggleDescription(element) {
@@ -216,11 +329,11 @@ function toggleDescription(element) {
     if (description.style.maxHeight === "0px" || description.style.maxHeight === "") {
         description.style.maxHeight = description.scrollHeight + "px";
         description.style.opacity = "1";
-        element.textContent = "Less";
+        element.textContent = "Less info";
     } else {
         description.style.maxHeight = "0px";
         description.style.opacity = "0";
-        element.textContent = "More";
+        element.textContent = "More info";
     }
 }
         function scrollSlider(direction) {
@@ -228,6 +341,33 @@ function toggleDescription(element) {
     const scrollAmount = slider.clientWidth * 0.5;
     slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
 }
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smoothTouch: false,
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Custom smooth scrolling for links
+    document.querySelectorAll('.scroll-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('data-target');
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                lenis.scrollTo(targetElement, { duration: 1.5, offset: -135 });
+            }
+        });
+    });
     </script>
 </body>
 </html>
