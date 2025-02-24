@@ -21,7 +21,8 @@
 
         body {
             font-family: 'AlteHaasGrotesk', sans-serif;
-            background-color: white;
+            position: relative;
+            background: white;
         }
 
         .header {
@@ -31,7 +32,9 @@
             width: 100%;
             text-align: center;
             padding: 30px 0;
-            z-index: 1000;
+            color: white;
+            mix-blend-mode: difference;
+            z-index: 2;
         }
 
         .header h1 {
@@ -45,26 +48,26 @@
             position: relative;
             width: 80%;
             height: 70vh;
-            margin: 20vh auto 0 auto;
+            margin: 22vh auto 0 auto;
             border: 0px solid black;
+            z-index: 1;
         }
 
         .thumbnail {
             position: absolute;
-            width: 200px;
-            height: 200px;
-            background: grey;
+            width: 210px;
+            height: 210px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .thumbnail:nth-child(1) { top: 0%; left: 0%; }
-        .thumbnail:nth-child(2) { top: 30%; left: 40%; }
-        .thumbnail:nth-child(3) { top: 50%; left: 20%; }
-        .thumbnail:nth-child(4) { top: 20%; left: 60%; }
-        .thumbnail:nth-child(5) { top: 40%; left: 20%; }
-        .thumbnail:nth-child(6) { top: 65%; left: 66%; }
+        .thumbnail:nth-child(1) { top: 45%; left: 45%; }
+        .thumbnail:nth-child(2) { top: 0%; left: 40%; }
+        .thumbnail:nth-child(3) { top: 9%; left: 13%; }
+        .thumbnail:nth-child(4) { top: 4%; left: 69%; }
+        .thumbnail:nth-child(5) { top: 49%; left: 73%; }
+        .thumbnail:nth-child(6) { top: 53%; left: 19%; }
 
         .thumbnail video {
             width: 100%;
@@ -75,6 +78,39 @@
         .project {
             margin: 50px auto;
         }
+
+        .image-slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.arrow {
+    font-family: 'AlteHaasGrotesk', sans-serif;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0);
+    color: white;
+    border: none;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 10px 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    mix-blend-mode: difference;
+}
+
+.arrow.left {
+    left: 0;
+}
+
+.arrow.right {
+    right: 0;
+}
+.image-slider-container:hover .arrow {
+    opacity: 1;
+}
 
         .image-slider {
             display: flex;
@@ -89,18 +125,18 @@
         }
 
         .image-slider::-webkit-scrollbar {
-    display: none;  /* Chrome, Safari */
+    display: none;
 }
 
         .image-slider img {
     max-width: 100%;
     height: auto;
     display: block;
-    padding-right: 1vw;
+    padding-right: 0.6vw;
 }
         .project-description {
-            width: 65%;
-            margin: 0 auto;
+            width: 62%;
+            margin: auto;
             text-align: left;
         }
 
@@ -112,14 +148,24 @@
         }
 
         .project-description-hidden {
-            display: none;
-        }
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease-out, opacity 0.3s ease-out;
+}
+
+.underline-link {
+    text-decoration: underline;
+    color: inherit;
+}
 
         .toggle-button {
             cursor: pointer;
             text-decoration: underline;
             font-size: 1.4rem;
-            display: inline;
+            display: block;
+    text-align: center;
+    margin: 1rem auto;
         }
     </style>
 </head>
@@ -130,42 +176,58 @@
     </div>
 
     <div class="thumbnails-container">
-        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 1.png" src="project1.mp4"></video></div>
-        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 2.png" src="project2.mp4"></video></div>
-        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 3.png" src="project3.mp4"></video></div>
-        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 4.png" src="project4.mp4"></video></div>
-        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 5.png" src="project5.mp4"></video></div>
-        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 6.png" src="project6.mp4"></video></div>
+        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 1.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_LetsPollinate.mp4"></video></div>
+        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 2.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_LillaSamvetet.mp4"></video></div>
+        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 3.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_Katarsis.mp4"></video></div>
+        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 4.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_Sellpy.mp4"></video></div>
+        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 5.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_Ionosphere.mp4"></video></div>
+        <div class="thumbnail"><video autoplay loop muted poster="assets/Asset 6.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_AllmänLekplats.mp4"></video></div>
     </div>
 
     <div class="project">
-        <div class="image-slider">
-          <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_6.jpg">
-            <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_3.jpg" style="width: auto; height: 100%; margin: auto;">
-            <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_1.jpg">
-            <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_4.jpg">
-            <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_5.jpg">
-            <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_7.jpg">
-        </div>
-        <div class="project-description">
-            <h1 class="project-header">Lilla Samvetet</h1>
-            <p>2024<br><br>Lilla Samvetet (”The Little Conscience”) is the result of a interdisciplinary collaboration between researchers at the Beijer Institute, Svenskt Tenn, and Beckmans College of Design.<br><br></p>
-            <p class="project-description-hidden">The Beijer Institute has conducted immense research... <br><br></p>
-            <span class="toggle-button" onclick="toggleDescription(this)">More</span>
-        </div>
-    </div>
+      <div class="image-slider-container">
+          <button class="arrow left" onclick="scrollSlider(-1)">&lt;</button>
+          <div class="image-slider">
+              <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_6.jpg">
+              <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_3.jpg">
+              <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_1.jpg">
+              <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_4.jpg">
+              <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_5.jpg">
+              <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_7.jpg">
+          </div>
+          <button class="arrow right" onclick="scrollSlider(1)">&gt;</button>
+      </div>
+      <div class="project-description">
+          <h1 class="project-header">Lilla Samvetet</h1>
+          <p>2024<br><br>Lilla Samvetet (”The Little Conscience”) is the result of a <a href="https://www.svenskttenn.se" target="_blank" class="underline-link">interdisciplinary collaboration</a> between researchers at <a href="https://www.svenskttenn.se" target="_blank" class="underline-link">the Beijer Institute</a>, <a href="https://www.svenskttenn.se" target="_blank" class="underline-link">Svenskt Tenn</a>, and <a href="https://www.svenskttenn.se" target="_blank" class="underline-link">Beckmans College of Design</a>.<br></p>
+          <p class="project-description-hidden"><br>The Beijer Institute has conducted immense research on the risks and opportunities associated with artificial intelligence, and the goal of this project was to find new ways convey this knowledge both intellectually and emotionally, through visual communication.
+<br><br><b></b>
+            We did this by imagining a future where artificial intelligence is given a place inside of the human intellect. In such an amalgam of intelligence, we think that AI could save the flawed human from acting unsustainably and selfishly. Like <a href="https://www.svenskttenn.se" target="_blank" class="underline-link">Jiminy Cricket</a>, the AI would take on the role of a conscience. But unlike the little cricket, this new conscience is not something you can simply wave away. Instead it is super strong, and impossible to betray.
+            <br><br>
+            Lilla Samvetet was made in collaboration with <a href="https://www.svenskttenn.se" target="_blank" class="underline-link">Elvin Odelholm</a>.<br></p>
+          <span class="toggle-button" onclick="toggleDescription(this)">More</span>
+      </div>
+  </div>
 
     <script>
-        function toggleDescription(element) {
-            const description = element.previousElementSibling;
-            if (description.style.display === "none" || description.style.display === "") {
-                description.style.display = "block";
-                element.textContent = "Less";
-            } else {
-                description.style.display = "none";
-                element.textContent = "More";
-            }
-        }
+function toggleDescription(element) {
+    const description = element.previousElementSibling;
+
+    if (description.style.maxHeight === "0px" || description.style.maxHeight === "") {
+        description.style.maxHeight = description.scrollHeight + "px";
+        description.style.opacity = "1";
+        element.textContent = "Less";
+    } else {
+        description.style.maxHeight = "0px";
+        description.style.opacity = "0";
+        element.textContent = "More";
+    }
+}
+        function scrollSlider(direction) {
+    const slider = document.querySelector('.image-slider');
+    const scrollAmount = slider.clientWidth * 0.5;
+    slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+}
     </script>
 </body>
 </html>
