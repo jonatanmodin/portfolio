@@ -41,6 +41,7 @@
             color: white;
             mix-blend-mode: difference;
             z-index: 2;
+            pointer-events: none;
         }
 
         .header h1 {
@@ -57,6 +58,7 @@
             text-align: left;
             padding: 65px 0;
             font-size: 1.4rem;
+            pointer-events: all;
                   }
 
                   .rightLink {
@@ -66,6 +68,7 @@
             text-align: right;
             padding: 65px 0;
             font-size: 1.4rem;
+            pointer-events: all;
                   }
 
         .thumbnails-container {
@@ -86,6 +89,7 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
+        cursor: pointer; /* Set cursor to pointer */
     }
 
     .caption {
@@ -170,7 +174,6 @@
             gap: 0vh;
             white-space: nowrap;
             height: 36vw;
-            margin-bottom: 2vw;
             scrollbar-width: none;
     -ms-overflow-style: none;
         }
@@ -191,6 +194,8 @@
             width: 62%;
             margin: auto;
             text-align: left;
+            margin-top: 2vw;
+
         }
 
         .project-description h1 {
@@ -238,6 +243,75 @@
     width: 64vw;
     height: 36vw;
 }
+.mobileheader {
+  height: 0vh;
+  width: 0vw;
+  display: none;
+}
+
+@media (max-width: 768px) {
+.thumbnails-container{
+  display: none;
+}
+.header{
+  width: 100vw;
+padding: 10vw;
+}
+.header h1 {
+            font-size: 2.8rem;
+            line-height: 95%;
+        }
+        .header h2 {
+            font-size: 1.1rem;
+            line-height: 180%;
+        }
+        .mobileheader{
+          display: block;
+          height: 12rem;
+          width: 100vw;
+        }
+        .leftLink{
+          display: none;
+        }
+        .rightLink{
+          display: none;
+        }
+        .image-slider{
+          height: 47vw;
+        }
+        .arrow{
+          opacity: 1;
+          font-size: 2rem;
+        }
+        .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 84vw;
+    height: 47vw;
+}
+.image-slider img, 
+        .image-slider video {
+            padding-right: 1vw;
+        }
+.project-description {
+            width: 75%;
+            margin: auto;
+            text-align: left;
+            margin-top: 5vw;
+            margin-bottom: 0vw;
+        }
+
+        .project-description h1 {
+            font-size: 2rem;
+        }
+        .project-description p {
+            font-size: 1.1rem;
+        }
+        .toggle-button{
+          font-size: 1.1rem;
+        }
+}
     </style>
 </head>
 <body>
@@ -246,6 +320,7 @@
         <h2>DESIGN / ART DIRECTION</h2>
         <p class="leftLink"><a href="https://www.instagram.com/jonatanmodin" target="_blank" class="underline-link">About</a></p><p class="rightLink"><a href="https://www.instagram.com/jonatanmodin" target="_blank" class="underline-link">Instagram</a></p>
     </div>
+    <div class="mobileheader"></div>
     <div class="thumbnails-container">
       <div class="thumbnail">
           <video autoplay loop muted poster="assets/Asset 1.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_LetsPollinate.mp4"></video>
