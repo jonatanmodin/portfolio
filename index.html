@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="https://use.typekit.net/gan5ygt.css">
+  <link rel="icon" type="image/png" href="assets/portfolio_favicon.png">
   <script src="https://unpkg.com/@studio-freight/lenis@latest/dist/lenis.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,9 +48,11 @@ body {
 
         .header h1 {
             font-size: 3.5rem;
+            pointer-events: all;
         }
         .header h2 {
             font-size: 1.6rem;
+            pointer-events: all;
         }
 
         .leftLink {
@@ -380,8 +383,8 @@ padding: 10vw;
       <div class="project-description">
           <h1 class="project-header">Katarsis</h1>
           <p>2025<br><br>A speculative glimpse into the future workplace, presented in the form of a <a href="https://vimeo.com/1059798120?share=copy" target="_blank" class="underline-link">short film</a> commissioned by <a href="https://ahouse.se/community/vad-driver-framtidens-arbetsplats-2/" target="_blank" class="underline-link">A house</a>.<br></p>
-          <p class="project-description-hidden"><br>Remote work offers many benefits but often comes at the expense of connection between colleagues. In the future, virtual technology could enable interactions once deemed impossible in professional settings. 
-            <br><br>A virtual space without lasting physical consequences allows for actions without limitations. By expressing strong emotions, a sense of relief and clarity can be achieved—a process known as catharsis. 
+          <p class="project-description-hidden"><br>"Remote work offers many benefits but often comes at the expense of connection between colleagues. In the future, virtual technology could enable interactions once deemed impossible in professional settings. 
+            <br><br>A virtual space without lasting physical consequences allows for actions without limitations. By expressing strong emotions, a sense of relief and clarity can be achieved—a process known as catharsis." 
             <br><br>Katarsis was directed, written, and produced by Jonatan Modin, Emilia Lind, and Sofia Di Marco, and made possible with support from <a href="https://rockson.se" target="_blank" class="underline-link">Rockson</a>, <a href="https://sellpy.se" target="_blank" class="underline-link">Sellpy</a>, and <a href="https://nyfosa.se" target="_blank" class="underline-link">Nyfosa</a>.<br></p>
           <span class="toggle-button" onclick="toggleDescription(this)">More info</span>
       </div>
@@ -457,6 +460,12 @@ function scrollSlider(button, direction) {
             }
         });
     });
+    document.querySelectorAll('.header h1, .header h2').forEach(element => {
+    element.style.cursor = "pointer"; // Make it visually clear that it's clickable
+    element.addEventListener('click', () => {
+        lenis.scrollTo(0, { duration: 1.5 }); // Smoothly scroll to top
+    });
+});
     </script>
 </body>
 </html>
