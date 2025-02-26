@@ -310,7 +310,7 @@ padding: 10vw;
         .project-description h1 {
             font-size: 2rem;
             background-color: white;
-            filter: blur(0.05rem) contrast(100);
+            filter: blur(0.04rem) contrast(100);
         }
         .project-description p {
             font-size: 1.1rem;
@@ -363,16 +363,15 @@ padding: 10vw;
   </div>
     <div class="project" id="katarsis">
       <div class="image-slider-container">
-          <button class="arrow left" onclick="scrollSlider(-1)">&lt;</button>
-          <div class="image-slider">
+        <button class="arrow left" onclick="scrollSlider(this, -1)">&lt;</button>
+        <div class="image-slider">
             <video autoplay loop muted playsinline poster="assets/Katarsis/Jonatan_Modin_Art_Director_Designer_Stockholm_Katarsis2.jpg" src="assets/Katarsis/Jonatan_Modin_Art_Director_Designer_Stockholm_Katarsis1.mp4"></video>
             <img src="assets/Katarsis/Jonatan_Modin_Art_Director_Designer_Stockholm_Katarsis3.jpg">
             <img src="assets/Katarsis/Jonatan_Modin_Art_Director_Designer_Stockholm_Katarsis4.jpg">
             <div class="video-wrapper">
               <iframe src="https://player.vimeo.com/video/1059798120?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Katarsis – A short film"></iframe>
           </div>          </div>
-          <button class="arrow right" onclick="scrollSlider(1)">&gt;</button>
-      </div>
+          <button class="arrow right" onclick="scrollSlider(this, 1)">&gt;</button>      </div>
       <div class="project-description">
           <h1 class="project-header">Katarsis</h1>
           <p>2025<br><br>A speculative glimpse into the future workplace, presented in the form of a <a href="https://vimeo.com/1059798120?share=copy" target="_blank" class="underline-link">short film</a> commissioned by <a href="https://ahouse.se/community/vad-driver-framtidens-arbetsplats-2/" target="_blank" class="underline-link">A house</a>.<br></p>
@@ -384,8 +383,8 @@ padding: 10vw;
   </div>
   <div class="project" id="lilla-samvetet" style="margin-top: -10vh;">
     <div class="image-slider-container">
-        <button class="arrow left" onclick="scrollSlider(-1)">&lt;</button>
-        <div class="image-slider">
+      <button class="arrow left" onclick="scrollSlider(this, -1)">&lt;</button>
+      <div class="image-slider">
             <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_6.jpg">
             <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_3.jpg">
             <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_1.jpg">
@@ -393,8 +392,7 @@ padding: 10vw;
             <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_5.jpg">
             <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_7.jpg">
         </div>
-        <button class="arrow right" onclick="scrollSlider(1)">&gt;</button>
-    </div>
+        <button class="arrow right" onclick="scrollSlider(this, 1)">&gt;</button>    </div>
     <div class="project-description">
         <h1 class="project-header">Lilla Samvetet</h1>
         <p>(The Little Conscience), 2024<br><br>The result of a <a href="https://beijer.kva.se/news-item/4163/" target="_blank" class="underline-link">interdisciplinary collaboration</a> between researchers at <a href="https://beijer.kva.se/" target="_blank" class="underline-link">the Beijer Institute</a>, <a href="https://www.svenskttenn.se" target="_blank" class="underline-link">Svenskt Tenn</a>, and <a href="https://beckmans.se/" target="_blank" class="underline-link">Beckmans College of Design</a>.<br></p>
@@ -421,8 +419,9 @@ function toggleDescription(element) {
         element.textContent = "More info";
     }
 }
-        function scrollSlider(direction) {
-    const slider = document.querySelector('.image-slider');
+function scrollSlider(button, direction) {
+    const container = button.closest('.image-slider-container'); // Find the closest image slider container
+    const slider = container.querySelector('.image-slider'); // Get the correct image slider
     const scrollAmount = slider.clientWidth * 0.5;
     slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
 }
