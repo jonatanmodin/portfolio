@@ -32,11 +32,6 @@ body {
     position: relative;
     background: white;
 }
-
-.arrow, .header, .project-description, .caption {
-    font-family: 'AlteHaasGrotesk', 'neue-haas-grotesk-text', sans-serif;
-}
-
         .header {
             position: fixed;
             top: 0;
@@ -266,10 +261,14 @@ padding: 10vw;
 .header h1 {
             font-size: 2.8rem;
             line-height: 95%;
+            background-color: black;
+            filter: blur(0.08rem) contrast(100);
         }
         .header h2 {
             font-size: 1.1rem;
             line-height: 180%;
+            background-color: black;
+            filter: blur(0.03rem) contrast(100);
         }
         .mobileheader{
           display: block;
@@ -310,6 +309,8 @@ padding: 10vw;
 
         .project-description h1 {
             font-size: 2rem;
+            background-color: white;
+            filter: blur(0.05rem) contrast(100);
         }
         .project-description p {
             font-size: 1.1rem;
@@ -317,6 +318,9 @@ padding: 10vw;
         .toggle-button{
           font-size: 1.1rem;
         }
+        body {
+    font-family:'neue-haas-grotesk-text', sans-serif;
+}
 }
     </style>
 </head>
