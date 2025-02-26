@@ -232,8 +232,8 @@ body {
 }
 .video-wrapper {
     position: relative;
-    width: 100%;
-    max-width: 1920px;
+    display: block;
+    min-width: 64.6vw;
     height: 0;
 }
 
@@ -288,6 +288,9 @@ padding: 10vw;
           opacity: 1;
           font-size: 2rem;
         }
+    .video-wrapper{
+      min-width: 84.9vw;
+    }
         .video-wrapper iframe {
     position: absolute;
     top: 0;
@@ -370,7 +373,9 @@ padding: 10vw;
             <img src="assets/Katarsis/Jonatan_Modin_Art_Director_Designer_Stockholm_Katarsis4.jpg">
             <div class="video-wrapper">
               <iframe src="https://player.vimeo.com/video/1059798120?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Katarsis – A short film"></iframe>
-          </div>          </div>
+          </div>
+          <video autoplay loop muted playsinline src="assets/Katarsis/Katarsis_BTS_1.mp4"></video>
+        </div>
           <button class="arrow right" onclick="scrollSlider(this, 1)">&gt;</button>      </div>
       <div class="project-description">
           <h1 class="project-header">Katarsis</h1>
