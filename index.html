@@ -94,6 +94,7 @@ body {
         justify-content: center;
         overflow: hidden;
         cursor: pointer; /* Set cursor to pointer */
+        pointer-events: all;
     }
 
     .caption {
@@ -110,7 +111,8 @@ body {
         font-size: 1.4rem;
         opacity: 0;
         transition: opacity 0.2s ease-in-out;
-        pointer-events: none;
+        pointer-events: all;
+        cursor: pointer;
         text-transform: uppercase;
         font-weight: bold;
         letter-spacing:0.03rem;
@@ -339,20 +341,22 @@ padding: 10vw;
     <div class="mobileheader"></div>
     <div class="thumbnails-container">
       <div class="thumbnail">
+        <a class="scroll-link" data-target="lets-pollinate">
           <video autoplay loop muted playsinline poster="assets/Asset 1.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_LetsPollinate.mp4"></video>
           <div class="caption">ai powered <br>community <br>building</div>
+          </a>
       </div>
         <div class="thumbnail">
           <a class="scroll-link" data-target="lilla-samvetet">
             <video autoplay loop muted playsinline poster="assets/Asset 2.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_LillaSamvetet.mp4"></video>
-          </a>
             <div class="caption">A super<br>strong<br>conscience</div>
+          </a>
         </div>
       <div class="thumbnail">
         <a class="scroll-link" data-target="katarsis">
           <video autoplay loop muted playsinline poster="assets/Asset 3.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_Katarsis.mp4"></video>
-        </a>
           <div class="caption">workplace <br>conflict <br>resolution</div>
+        </a>
       </div>
       <div class="thumbnail">
           <video autoplay loop muted playsinline poster="assets/Asset 4.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_Sellpy.mp4"></video>
@@ -411,6 +415,26 @@ padding: 10vw;
           Lilla Samvetet was made in collaboration with <a href="https://elvinodelholm.com/" target="_blank" class="underline-link">Elvin Odelholm</a>.<br></p>
         <span class="toggle-button" onclick="toggleDescription(this)">More info</span>
     </div>
+</div>
+
+<div class="project" id="lets-pollinate" style="margin-top: -10vh;">
+  <div class="image-slider-container">
+    <button class="arrow left" onclick="scrollSlider(this, -1)">&lt;</button>
+    <div class="image-slider">
+          <img src="assets/LetsPollinate/Jonatan_Modin_Art_Director_Designer_Stockholm_LetsPollinate1.jpg">
+          <img src="assets/LetsPollinate/Jonatan_Modin_Art_Director_Designer_Stockholm_LetsPollinate2.jpg">
+          <img src="assets/LetsPollinate/Jonatan_Modin_Art_Director_Designer_Stockholm_LetsPollinate4.jpg">
+          <img src="assets/LetsPollinate/Jonatan_Modin_Art_Director_Designer_Stockholm_LetsPollinate3.jpg">
+          <img src="assets/LetsPollinate/Jonatan_Modin_Art_Director_Designer_Stockholm_LetsPollinate5.jpg">
+      </div>
+      <button class="arrow right" onclick="scrollSlider(this, 1)">&gt;</button>    
+    </div>
+  <div class="project-description">
+      <h1 class="project-header">Let's Pollinate</h1>
+      <p>2024<br><br>An AI powered digital experience developed at Random Studio's Living Lab, and showcased at Us by Night 2024.<br></p>
+      <p class="project-description-hidden"><br>.<br></p>
+      <span class="toggle-button" onclick="toggleDescription(this)">More info</span>
+  </div>
 </div>
 
     <script>
