@@ -225,6 +225,12 @@ body {
     color: inherit;
 }
 
+.scroll-link {
+    text-decoration: underline;
+    color: inherit;
+    cursor: pointer;
+}
+
         .toggle-button {
             cursor: pointer;
             text-decoration: underline;
@@ -244,6 +250,10 @@ body {
     height: 0;
 }
 
+.video-wrapper.disable-pointer iframe {
+  pointer-events: none;
+}
+
 .video-wrapper iframe {
     position: absolute;
     top: 0;
@@ -261,6 +271,7 @@ body {
 .thumbnails-container{
   display: none;
 }
+
 .header{
   width: 100vw;
 padding: 10vw;
@@ -332,13 +343,56 @@ padding: 10vw;
     font-family:'neue-haas-grotesk-text', sans-serif;
 }
 }
+
+.project-description p span.year {
+  float: right;
+}
+
+.hoverimage-container {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  justify-content: center;
+  margin-bottom: -3vh;
+}
+
+@media (max-width: 768px) {
+.hoverimage-container {
+  margin-bottom: -2vh;
+  scale: 80%;
+}
+}
+
+.hoverimage {
+  position: relative;
+  margin-top: 7vh;
+  height: 24vh;
+  width: 24vh;
+}
+
+.hoverimage img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transition: opacity 0.1s ease;
+}
+
+#first {
+  z-index: 1;
+}
+
+.hoverimage:hover #first {
+  opacity: 0;
+}
     </style>
 </head>
 <body>
     <div class="header">
         <h1>JONATAN MODIN</h1>
         <h2>DESIGN / ART DIRECTION</h2>
-        <p class="leftLink"><a href="https://www.instagram.com/jonatanmodin" target="_blank" class="underline-link">About</a></p><p class="rightLink"><a href="https://www.instagram.com/jonatanmodin" target="_blank" class="underline-link">Instagram</a></p>
+        <p class="leftLink"><a href="#" class="underline-link scroll-link" data-target="about">About</a></p>
+        <p class="rightLink"><a href="https://www.instagram.com/jonatanmodin" target="_blank" class="underline-link">Instagram</a></p>
     </div>
     <div class="mobileheader"></div>
     <div class="thumbnails-container">
@@ -367,8 +421,10 @@ padding: 10vw;
         </a>
       </div>
       <div class="thumbnail">
+        <a class="scroll-link" data-target="ionosphere">
           <video autoplay loop muted playsinline poster="assets/Asset 5.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_Ionosphere.mp4"></video>
           <div class="caption">3d<br>projection<br>mapping</div>
+        </a>
       </div>
       <div class="thumbnail">
           <video autoplay loop muted playsinline poster="assets/Asset 6.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_AllmänLekplats.mp4"></video>
@@ -466,6 +522,67 @@ padding: 10vw;
   </div>
 </div>
 
+<div class="project" id="ionosphere" style="margin-top: -10vh;">
+  <div class="image-slider-container">
+    <button class="arrow left" onclick="scrollSlider(this, -1)">&lt;</button>
+    <div class="image-slider">
+          <div class="video-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/d_f4fns7zDg?si=Q0Dh6Vjxl-cH24tV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        
+          </div>
+            <video autoplay loop muted playsinline src="assets/Ionosphere/btsionosphere.mp4"></video>
+            <img src="assets/Ionosphere/Jonatan_Modin_Art_Director_Designer_Stockholm_Ionosphere_1.jpg">
+            <img src="assets/Ionosphere/Jonatan_Modin_Art_Director_Designer_Stockholm_Ionosphere_2.PNG">
+            <img src="assets/Ionosphere/Jonatan_Modin_Art_Director_Designer_Stockholm_Ionosphere_3.jpeg">
+      </div>
+      <button class="arrow right" onclick="scrollSlider(this, 1)">&gt;</button>    
+    </div>
+  <div class="project-description">
+      <h1 class="project-header">Ionosphere</h1>
+      <p>2023<br><br>An experimental light installation using 3D scanning, projection mapping, and papier-mâché to give the illusion of changing materialities.<br></p>
+      <p class="project-description-hidden"><br>
+        In the <a href="https://soundvisions.se/" class="underline-link" target="_blank">Sound&amp;Visions</a> project, design students at <a href="https://beckmans.se" class="underline-link" target="_blank">Beckmans College of Design</a> collaborate with music students at the <a href="https://www.kmh.se/" class="underline-link" target="_blank">Royal College of Music</a> to create moving light installations based on musical works. 
+<br><br>
+        <a href="https://arinbjarnarson.com" class="underline-link" target="_blank">Adam Arinbjarnarson</a>, <a href="https://manshorning.se" class="underline-link" target="_blank">Måns Horning</a>, and I created a simple sculpture depicting a mountain. By photogrammetrically scanning the sculpture, illuminating and rendering it digitally, and then projecting the graphics back onto the sculpture, we were able to create the illusion that the sculpture changes over time.
+<br><br>
+Music by <a href="https://monumentalwave.com/team/erasmus/" class="underline-link" target="_blank">Erasmus Talbot</a>.
+<br></p>
+      <span class="toggle-button" onclick="toggleDescription(this)">More info</span>
+  </div>
+</div>
+
+<div class="about" id="about" style="margin-top: -10vh;">
+  <div class="hoverimage-container"><div class="hoverimage">
+    <img id="first" src="assets/About/Jonatan Modin Portrait1.jpg">
+    <img id="second" src="assets/About/Jonatan Modin Portrait2.jpg">
+  </div>
+</div>
+    <div class="project-description">
+    <h1 class="project-header">Hi there!</h1>
+<br><p>I’m a designer and art director, graduating from <a href="https://beckmans.se/" target="_blank" class="underline-link">Beckmans College of Design</a> in 2025. Upon reviewing my projects you might notice that I like to work in the intersection of design and technology. I have (among other things) designed and developed a game <a href="https://www.tekniskamuseet.se/pa-gang/super-ultra-mega-hyper-spelupplevelser-fran-beckmans/" target="_blank" class="underline-link">exhibited</a> at the National Museum of Science and Technology, <a class="scroll-link" data-target="ionosphere">mapped projections</a> onto sculptures together with the Royal College of Music, <a target="_blank" href="https://insta-killer-click.glitch.me/" class="underline-link">coded a site</a> that deletes your instagram account, and have through this explored some of the things that interest me in visual media.
+<br><br>
+  I’ve also been a part of the small and agile creative team at the circular e-commerce <a target="_blank" class="underline-link" href="https://www.linkedin.com/company/sellpy">Sellpy</a>. In my role as Junior Art Director I was involved in campaigns such as <a class="scroll-link" data-target="change-for-the-better">Change for the better</a>, <a target="_blank" class="underline-link" href="https://www.resume.se/marknadsforing/kampanj/sellpy-slapper-wikipedia-for-klimatavtryck--vill-visa-det-riktiga-priset-for-black-friday/">The real cost of Black Friday</a>, <a target="_blank" class="underline-link" href="https://www.resume.se/kommunikation/varumarke/sellpy-uppdaterar-varumarket-med-nytt-koncept-och-logotyp/">the total revamp of the Sellpy brand</a>, among many others.
+<br><br>
+  If you want to work together, or just talk about the vernacular design of haulage contractor logos, don’t hesitate to reach out → <a href="mailto:jonatan.modin@gmail.com" class="underline-link">jonatan.modin@gmail.com</a>
+</div>
+</div>
+<div class="project-description" style="margin-top: 10vh; margin-bottom: 12vh;">
+  <h1 class="project-header">Experience</h1>
+  <br>
+  <p>
+    Summer Internship <span class="year">2024</span><br>
+    <a href="https://random.studio/" target="_blank" class="underline-link">Random Studio</a>, Amsterdam<br><br>
+
+    Internship <span class="year">2024</span><br>
+    <a href="https://untitledservices.com//" target="_blank" class="underline-link">Untitled Services</a>, Stockholm<br><br>
+
+    BFA in Visual Communication <span class="year">2022 – 2025</span><br>
+    <a href="https://beckmans.se/" target="_blank" class="underline-link">Beckmans College of Design</a><br><br>
+
+    Junior Art Director <span class="year">2020 – 2022</span><br>
+    <a href="https://sellpy.com/" target="_blank" class="underline-link">Sellpy</a>
+  </p>
+</div>
+</div>
     <script>
 function toggleDescription(element) {
     const description = element.previousElementSibling;
@@ -518,6 +635,20 @@ function scrollSlider(button, direction) {
     element.addEventListener('click', () => {
         lenis.scrollTo(0, { duration: 1.5 }); // Smoothly scroll to top
     });
+});
+let isScrolling;
+
+window.addEventListener('scroll', () => {
+  clearTimeout(isScrolling);
+  document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+    wrapper.classList.add('disable-pointer');
+  });
+
+  isScrolling = setTimeout(() => {
+    document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+      wrapper.classList.remove('disable-pointer');
+    });
+  }, 200); // adjust timeout as needed
 });
     </script>
 </body>
