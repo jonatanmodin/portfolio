@@ -261,6 +261,16 @@ body {
     width: 64vw;
     height: 36vw;
 }
+
+.video-wrapper#small {
+    min-width: 48.6vw;
+}
+
+.video-wrapper#small iframe {
+    width: 48vw;
+    height: 36vw;
+}
+
 .mobileheader {
   height: 0vh;
   width: 0vw;
@@ -316,6 +326,16 @@ padding: 10vw;
     width: 84vw;
     height: 47vw;
 }
+
+.video-wrapper#small {
+    min-width: 64vw;
+}
+
+.video-wrapper#small iframe {
+    width: 63vw;
+    height: 47vw;
+}
+
 .image-slider img, 
         .image-slider video {
             padding-right: 1vw;
@@ -427,8 +447,10 @@ padding: 10vw;
         </a>
       </div>
       <div class="thumbnail">
+        <a class="scroll-link" data-target="allmanlekplats">
           <video autoplay loop muted playsinline poster="assets/Asset 6.png" src="assets/thumbnails/Jonatan_Modin_Art_Director_Designer_Stockholm_AllmänLekplats.mp4"></video>
           <div class="caption">playing at <br>construction <br>sites</div>
+        </a>
       </div>
   </div>
     <div class="project" id="katarsis">
@@ -459,7 +481,6 @@ padding: 10vw;
       <div class="image-slider">
             <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_6.jpg">
             <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_3.jpg">
-            <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_1.jpg">
             <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_4.jpg">
             <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_5.jpg">
             <img src="assets/LillaSamvetet/Jonatan_Modin_Art_Director_Designer_Stockholm_Lilla_Samvetet_7.jpg">
@@ -550,6 +571,38 @@ Music by <a href="https://monumentalwave.com/team/erasmus/" class="underline-lin
   </div>
 </div>
 
+<div class="project" id="allmanlekplats" style="margin-top: -10vh;">
+  <div class="image-slider-container">
+    <button class="arrow left" onclick="scrollSlider(this, -1)">&lt;</button>
+    <div class="image-slider">
+          <img src="assets/AllmanLekplats/Jonatan_Modin_Art_Director_Designer_Stockholm_AllmanLekplats1.jpg">
+          <div class="video-wrapper" id="small">
+            <iframe 
+              src="https://player.vimeo.com/video/867216982?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1" 
+              frameborder="0" 
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+              title="Allmän Lekplats">
+            </iframe>        
+          </div>
+          <img src="assets/AllmanLekplats/Jonatan_Modin_Art_Director_Designer_Stockholm_AllmanLekplats2.jpg">
+          <img src="assets/AllmanLekplats/Jonatan_Modin_Art_Director_Designer_Stockholm_AllmanLekplats3.jpg">
+          <img src="assets/AllmanLekplats/Jonatan_Modin_Art_Director_Designer_Stockholm_AllmanLekplats4.jpg">
+      </div>
+      <button class="arrow right" onclick="scrollSlider(this, 1)">&gt;</button>    
+    </div>
+  <div class="project-description">
+      <h1 class="project-header">Allmän Lekplats</h1>
+      <p>(Public Playground), 2023<br><br>A video created in the course “Konst Reklam Konst”, acting as a playful intervention that reimagines construction sites as part of the public space.<br></p>
+      <p class="project-description-hidden"><br>
+        Construction sites represent a constant occupation of the city, carried out by a vague and faceless authority. “Allmän Lekplats” explores what happens when we challenge this illegitimate takeover and reclaim these spaces for the people who actually live around them.
+What if, instead of fences, we build catapults? Or turn scaffolding into an obstacle course? Could a worksite become a place to make music?
+<br><br>
+The objects were modeled and simulated in Cinema 4D, then composited into real-world footage using camera tracking. Project supervised by <a target="_blank" class="underline-link" href="https://www.anneeolofsson.com/">Anneé Olofsson</a>.
+<br></p>
+      <span class="toggle-button" onclick="toggleDescription(this)">More info</span>
+  </div>
+</div>
+
 <div class="about" id="about" style="margin-top: -10vh;">
   <div class="hoverimage-container"><div class="hoverimage">
     <img id="first" src="assets/About/Jonatan Modin Portrait1.jpg">
@@ -579,7 +632,10 @@ Music by <a href="https://monumentalwave.com/team/erasmus/" class="underline-lin
     <a href="https://beckmans.se/" target="_blank" class="underline-link">Beckmans College of Design</a><br><br>
 
     Junior Art Director <span class="year">2020 – 2022</span><br>
-    <a href="https://sellpy.com/" target="_blank" class="underline-link">Sellpy</a>
+    <a href="https://sellpy.com/" target="_blank" class="underline-link">Sellpy</a><br><br>
+
+    Advertising & Public Relations <span class="year">2019 – 2020</span><br>
+    Stockholm University
   </p>
 </div>
 </div>
